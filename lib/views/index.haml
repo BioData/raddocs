@@ -1,9 +1,11 @@
 %h1= api_name
-
-- index["resources"].each do |resource|
-  .resource
-    %h2= resource["name"]
-    %ul.examples
-      - resource["examples"].each do |example|
-        %li.example
-          = link_to example["description"], "/#{example["link"].gsub(".json", "")}"
+.row
+  - index["resources"].in_groups_of(3).each do |group|
+    .span4
+      - group.each do |resource|
+        .resource
+          %h2= resource["name"]
+          %ul.examples
+            - resource["examples"].each do |example|
+              %li.example
+                = link_to example["description"], "/#{example["link"].gsub(".json", "")}"
