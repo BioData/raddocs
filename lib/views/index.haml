@@ -1,10 +1,10 @@
-%h1= api_name
+%h1 Labguru API
 .row
-  - index["resources"].in_groups_of(3).each do |group|
-    .span4
+  - index["resources"].in_groups_of(index["resources"].length / 3).each do |group|
+    .span5
       - group.each do |resource|
         .resource
-          %h2= resource["name"]
+          %h3= resource["name"]
           %ul.examples
             - resource["examples"].each do |example|
               %li.example
